@@ -21,7 +21,7 @@ class MainController extends Controller
             'name' => 'John Doe',
             'email' => 'john@doe.com',
         ]);
-        // 3 METODO
+        // 3 METODO me
         //return view('admin.admin_cont',)->with('name', 'Henrique')->with('email','henrique@henrique.com');
         // 4 metodo
         $name = 'Jose Henrique';
