@@ -52,16 +52,17 @@ class MainController extends Controller
 
     public function submitform(Request $request): string
     {
-        $request->validate([
-            'username' => 'required',
-            'password' => 'required|min:8|max:20',
-        ],
-        [
-            'username.required' => 'Campo Username obrigatorio',
-            'password.required' => 'Campo Password obrigatorio',
-            'password.min' => 'Campo Password deve ter mais de :min caracteres',
-            'password.max' => 'Campo Password deve ter mais de :max caracteres',
-        ]
+        $request->validate(
+            [
+                'username' => 'required',
+                'password' => 'required|min:8|max:20',
+            ],
+            [
+                'username.required' => 'Campo Username obrigatorio',
+                'password.required' => 'Campo Password obrigatorio',
+                'password.min' => 'Campo Password deve ter mais de :min caracteres',
+                'password.max' => 'Campo Password deve ter mais de :max caracteres',
+            ]
         );
 
         return "submetido Formulario";
@@ -73,7 +74,7 @@ class MainController extends Controller
         return view('welcome');
     }
 
-    public function clearSession(): string
+    public function clearSession(): View
     {
         session()->forget('username');
         return view('welcome');
